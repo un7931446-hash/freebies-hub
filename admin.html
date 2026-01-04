@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freebies Hub — Enterprise Admin Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="admin-panel.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="login-wrapper" id="loginPage">
+        <div class="login-container">
+            <img src="logo.png" alt="Freebies Hub Logo" class="login-logo">
+            <h1 class="login-title">Freebies Hub</h1>
+            <p class="login-subtitle">Enterprise Admin Panel • Secure Access</p>
+
+            <form class="login-form" onsubmit="event.preventDefault(); checkLogin();">
+                <label>Admin Username</label>
+                <input type="text" id="username" placeholder="e.g. admin123" required>
+
+                <label>Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+
+                <button type="submit" class="login-btn">Secure Login</button>
+            </form>
+
+            <div class="login-footer">
+                © January 03, 2026 • Authorized Access Only
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="main" id="dashboardMain" style="display:none;">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h1>Freebies Hub</h1>
+                <div class="tag">Enterprise Admin</div>
+            </div>
+            <a class="active" onclick="show('dashboard',this)"><i class="fas fa-chart-line"></i> Dashboard</a>
+            <a onclick="show('users',this)"><i class="fas fa-users"></i> Users</a>
+            <a onclick="show('products',this)"><i class="fas fa-box"></i> Products</a>
+            <a onclick="show('orders',this)"><i class="fas fa-cart-shopping"></i> Orders</a>
+            <a onclick="show('complaints',this)"><i class="fas fa-headset"></i> Complaints</a>
+        </div>
+
+        <!-- Dashboard View -->
+        <div id="dashboard" class="view active">
+            <div class="hero">
+                <h1>Enterprise Overview</h1>
+                <p>Advanced Analytics & Platform Control • January 03, 2026</p>
+            </div>
+
+            <div class="kpis">
+                <div class="kpi"><h2>1,240</h2><span>▲ 12% Users Growth</span></div>
+                <div class="kpi"><h2>58</h2><span>▲ 8% Active Listings</span></div>
+                <div class="kpi"><h2>342</h2><span>▲ 15% Orders</span></div>
+                <div class="kpi"><h2>PKR 45,820</h2><span>▲ 20% Revenue</span></div>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Revenue Trend (6 Months)</h3>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Recent Activity Timeline</h3>
+                    <div class="timeline">
+                        <div>Admin login — Umair Naeem (14:30)</div>
+                        <div>Product approved — Premium UI Kit</div>
+                        <div>User suspended — Buyer #305</div>
+                        <div>Order completed — #ORD-771</div>
+                        <div>System backup completed</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Weekly Orders Volume</h3>
+                    <canvas id="orderChart"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Product Categories Distribution</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users View -->
+        <div id="users" class="view">
+            <div class="card">
+                <h2>User Management</h2>
+                <table>
+                    <tr><th>ID</th><th>Name</th><th>Role</th><th>Status</th><th>Action</th></tr>
+                    <tr>
+                        <td>101</td><td>Umair Naeem</td><td>Admin</td>
+                        <td><span class="badge success">Active</span></td>
+                        <td><button class="btn" onclick="toggleUser(this)">Suspend</button></td>
+                    </tr>
+                    <tr>
+                        <td>105</td><td>Qazah Zahra</td><td>Moderator</td>
+                        <td><span class="badge success">Active</span></td>
+                        <td><button class="btn" onclick="toggleUser(this)">Suspend</button></td>
+                    </tr>
+                    <tr>
+                        <td>202</td><td>Insha Amin</td><td>Seller</td>
+                        <td><span class="badge success">Active</span></td>
+                        <td><button class="btn" onclick="toggleUser(this)">Suspend</button></td>
+                    </tr>
+                    <tr>
+                        <td>305</td><td>Muneeb Bin Anjum</td><td>Buyer</td>
+                        <td><span class="badge warning">Suspended</span></td>
+                        <td><button class="btn" onclick="toggleUser(this)">Activate</button></td>
+                    </tr>
+                    <tr>
+                        <td>308</td><td>Ali Khan</td><td>Buyer</td>
+                        <td><span class="badge success">Active</span></td>
+                        <td><button class="btn" onclick="toggleUser(this)">Suspend</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Products View -->
+        <div id="products" class="view">
+            <div class="card">
+                <h2>Product Management</h2>
+                <table>
+                    <tr><th>SKU</th><th>Name</th><th>Status</th><th>Action</th></tr>
+                    <tr>
+                        <td>FH-01</td><td>Premium UI Kit</td>
+                        <td><span class="badge warning">Pending</span></td>
+                        <td>
+                            <button class="btn" onclick="approveProduct(this)">Approve</button>
+                            <button class="btn" onclick="rejectProduct(this)">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FH-42</td><td>React Dashboard Template</td>
+                        <td><span class="badge warning">Pending</span></td>
+                        <td>
+                            <button class="btn" onclick="approveProduct(this)">Approve</button>
+                            <button class="btn" onclick="rejectProduct(this)">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FH-12</td><td>Icon Pack (1000+)</td>
+                        <td><span class="badge warning">Pending</span></td>
+                        <td>
+                            <button class="btn" onclick="approveProduct(this)">Approve</button>
+                            <button class="btn" onclick="rejectProduct(this)">Reject</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>FH-99</td><td>Wireless Blender Pro</td>
+                        <td><span class="badge warning">Pending</span></td>
+                        <td>
+                            <button class="btn" onclick="approveProduct(this)">Approve</button>
+                            <button class="btn" onclick="rejectProduct(this)">Reject</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Orders View -->
+        <div id="orders" class="view">
+            <div class="card">
+                <h2>Order Management</h2>
+                <table>
+                    <tr><th>ID</th><th>User</th><th>Status</th><th>Action</th></tr>
+                    <tr>
+                        <td>ORD-771</td><td>Bilal</td>
+                        <td><span class="badge warning">Processing</span></td>
+                        <td><button class="btn" onclick="markCompleted(this)">Mark Completed</button></td>
+                    </tr>
+                    <tr>
+                        <td>ORD-775</td><td>Hamna</td>
+                        <td><span class="badge warning">Processing</span></td>
+                        <td><button class="btn" onclick="markCompleted(this)">Mark Completed</button></td>
+                    </tr>
+                    <tr>
+                        <td>ORD-780</td><td>Umar</td>
+                        <td><span class="badge warning">Processing</span></td>
+                        <td><button class="btn" onclick="markCompleted(this)">Mark Completed</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Complaints View -->
+        <div id="complaints" class="view">
+            <div class="card">
+                <h2>Complaints Management</h2>
+                <table>
+                    <tr><th>ID</th><th>Issue</th><th>User</th><th>Status</th><th>Action</th></tr>
+                    <tr>
+                        <td>TK-12</td><td>Download link broken</td><td>Ayyan Shahid</td>
+                        <td><span class="badge danger">Open</span></td>
+                        <td><button class="btn" onclick="reviewCase()">Review</button></td>
+                    </tr>
+                    <tr>
+                        <td>TK-15</td><td>Account login issue</td><td>Ali Khan</td>
+                        <td><span class="badge danger">Open</span></td>
+                        <td><button class="btn" onclick="reviewCase()">Review</button></td>
+                    </tr>
+                    <tr>
+                        <td>TK-18</td><td>Payment not processed</td><td>Sara Ahmed</td>
+                        <td><span class="badge danger">Open</span></td>
+                        <td><button class="btn" onclick="reviewCase()">Review</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <footer>© January 03, 2026 Freebies Hub — Enterprise Admin System v6.0</footer>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal">
+        <div id="modalBox">
+            <h3 id="modalTitle"></h3>
+            <p id="modalBody"></p>
+            <button class="btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div id="toast"></div>
+
+    <script src="admin-panel.js"></script>
+</body>
+</html>

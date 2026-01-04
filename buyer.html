@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freebies Hub - Buyer Panel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="buyer-panel.css">
+</head>
+<body>
+    <!-- Login View -->
+    <div id="view-login" class="view-section active-view">
+        <div class="auth-wrapper">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <img src="logo.png" alt="Freebies Hub Logo" class="auth-logo">
+                    <h1 class="site-name">Freebies Hub</h1>
+                    <p style="color:#666; margin-top:10px;">Buyer Login</p>
+                </div>
+                <form onsubmit="event.preventDefault(); navigate('dashboard');">
+                    <label>Username</label><input type="text" placeholder="Enter username" required>
+                    <label>Password</label><input type="password" placeholder="Enter password" required>
+                    <button type="submit" class="btn-action">Log In</button>
+                </form>
+                <p style="margin-top:20px;">Don't have an account? <span class="link-text" onclick="navigate('signup')">Sign Up</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup View -->
+    <div id="view-signup" class="view-section">
+        <div class="auth-wrapper">
+            <div class="auth-container" style="width:450px;">
+                <div class="auth-header">
+                    <img src="logo.png" alt="Freebies Hub Logo" class="auth-logo">
+                    <h1 class="site-name">Freebies Hub</h1>
+                    <p style="color:#666; margin-top:10px;">Create Buyer Account</p>
+                </div>
+                <form onsubmit="event.preventDefault(); alert('Account Created Successfully!'); navigate('login');">
+                    <label>Username</label><input type="text" placeholder="Choose username" required>
+                    <label>Email</label><input type="email" placeholder="Enter email" required>
+                    <label>Password</label><input type="password" placeholder="Create password" required>
+                    <button type="submit" class="btn-action">Sign Up</button>
+                </form>
+                <p style="margin-top:20px;">Already have an account? <span class="link-text" onclick="navigate('login')">Log In</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard View -->
+    <div id="view-dashboard" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero">
+                <h1>Welcome Back, Buyer!</h1>
+                <p>Discover amazing freebies and manage your purchases with ease.</p>
+            </div>
+            <div class="cards">
+                <div class="card" onclick="navigate('offers')"><i class="fas fa-tags"></i><h3>Browse Offers</h3><p>Explore 15+ new freebies</p></div>
+                <div class="card" onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i><h3>My Orders</h3><p>2 active orders</p></div>
+                <div class="card" onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i><h3>Cart</h3><p>3 items waiting</p></div>
+                <div class="card" onclick="navigate('wishlist')"><i class="fas fa-heart"></i><h3>Wishlist</h3><p>5 saved items</p></div>
+                <div class="card" onclick="navigate('profile')"><i class="fas fa-user-cog"></i><h3>Profile</h3><p>Update details</p></div>
+                <div class="card" onclick="navigate('history')"><i class="fas fa-dollar-sign"></i><h3>History</h3><p>12 transactions</p></div>
+            </div>
+            <footer>© 2026 Freebies Hub — Buyer Dashboard</footer>
+        </div>
+    </div>
+
+    <!-- Offers View -->
+    <div id="view-offers" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>Available Offers</h1><p>Check out the latest freebies and exclusive deals!</p></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search offers...">
+                <button><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div class="cards">
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=200&fit=crop" alt="UI Kit">
+                    <h3>Premium UI Kit</h3><p>Free professional Figma components.</p>
+                    <span class="btn" onclick="addToCart('Premium UI Kit')">Add to Cart</span>
+                </div>
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?w=400&h=200&fit=crop" alt="E-book">
+                    <h3>SEO Masterclass</h3><p>Exclusive 200-page digital e-book.</p>
+                    <span class="btn" onclick="addToCart('SEO Masterclass')">Add to Cart</span>
+                </div>
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?w=400&h=200&fit=crop" alt="Icons">
+                    <h3>Icon Pack v2.0</h3><p>1500+ Vector icons for web apps.</p>
+                    <span class="btn" onclick="addToCart('Icon Pack v2.0')">Add to Cart</span>
+                </div>
+                <div class="offer-card">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=200&fit=crop" alt="Code">
+                    <h3>React Starter Kit</h3><p>Ready-to-use boilerplate code.</p>
+                    <span class="btn" onclick="addToCart('React Starter Kit')">Add to Cart</span>
+                </div>
+            </div>
+            <footer>© 2026 Freebies Hub — Offers</footer>
+        </div>
+    </div>
+
+    <!-- Orders View -->
+    <div id="view-orders" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>My Orders</h1><p>Track your active and completed purchases.</p></div>
+            <div class="box">
+                <table>
+                    <thead><tr><th>Order ID</th><th>Product</th><th>Date</th><th>Status</th><th>Action</th></tr></thead>
+                    <tbody>
+                        <tr><td>#ORD-771</td><td>Premium UI Kit</td><td>2026-01-01</td><td><span class="status status-completed">Completed</span></td><td><span class="btn" style="background:#0066ff;">Download</span></td></tr>
+                        <tr><td>#ORD-802</td><td>SEO Masterclass</td><td>2026-01-02</td><td><span class="status status-pending">Pending</span></td><td><span class="btn" style="background:#ff9c00;">Track</span></td></tr>
+                        <tr><td>#ORD-815</td><td>Icon Pack v2.0</td><td>2026-01-03</td><td><span class="status status-cancelled">Cancelled</span></td><td><span class="btn" style="background:#dc3545;">Refund Info</span></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>© 2026 Freebies Hub — My Orders</footer>
+        </div>
+    </div>
+
+    <!-- Cart View -->
+    <div id="view-cart" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>My Cart</h1><p>Review and checkout your selected items.</p></div>
+            <div class="box">
+                <table>
+                    <thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Action</th></tr></thead>
+                    <tbody id="cart-items">
+                        <!-- Items added dynamically -->
+                    </tbody>
+                </table>
+                <div class="total-section">
+                    <p>Total: <strong id="cart-total">$0.00</strong></p>
+                    <button class="btn-action" style="width:auto;" onclick="alert('Order Confirmed!'); navigate('orders')">Checkout</button>
+                </div>
+            </div>
+            <footer>© 2026 Freebies Hub — Cart</footer>
+        </div>
+    </div>
+
+    <!-- Wishlist View -->
+    <div id="view-wishlist" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>My Wishlist</h1><p>Your saved favorites for future claims.</p></div>
+            <div class="cards" id="wishlist-items">
+                <div class="card"><i class="fas fa-heart" style="color:#dc3545;"></i><h3>Landing Page Template</h3><p>Saved on Jan 01.</p><button class="remove-btn" onclick="removeFromWishlist(this)">Remove</button></div>
+                <div class="card"><i class="fas fa-heart" style="color:#dc3545;"></i><h3>Adobe XD UI Kit</h3><p>Saved on Jan 02.</p><button class="remove-btn" onclick="removeFromWishlist(this)">Remove</button></div>
+                <div class="card"><i class="fas fa-heart" style="color:#dc3545;"></i><h3>Stock Photo Bundle</h3><p>Saved on Jan 03.</p><button class="remove-btn" onclick="removeFromWishlist(this)">Remove</button></div>
+            </div>
+            <footer>© 2026 Freebies Hub — Wishlist</footer>
+        </div>
+    </div>
+
+    <!-- Profile View -->
+    <div id="view-profile" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>Profile Settings</h1><p>Update your personal information.</p></div>
+            <div class="form-box">
+                <form onsubmit="event.preventDefault(); alert('Profile Updated!');">
+                    <label>Full Name</label><input type="text" value="Buyer Name">
+                    <label>Email</label><input type="email" value="buyer@freebieshub.com">
+                    <label>Phone</label><input type="tel" value="+1 234 567 890">
+                    <label>Address</label><input type="text" value="123 Freebie St, City, Country">
+                    <button type="submit" class="btn-action">Save Changes</button>
+                </form>
+            </div>
+            <footer>© 2026 Freebies Hub — Profile</footer>
+        </div>
+    </div>
+
+    <!-- History View -->
+    <div id="view-history" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>Payment History</h1><p>View all your past transactions.</p></div>
+            <div class="box">
+                <table>
+                    <thead><tr><th>Trans ID</th><th>Item</th><th>Paid Via</th><th>Date</th><th>Amount</th></tr></thead>
+                    <tbody>
+                        <tr><td>#TRX-9110</td><td>Premium UI Kit</td><td>Easypaisa</td><td>2026-01-01</td><td>$0.00</td></tr>
+                        <tr><td>#TRX-8241</td><td>Logo Templates</td><td>JazzCash</td><td>2026-01-02</td><td>$0.00</td></tr>
+                        <tr><td>#TRX-7752</td><td>HTML Course</td><td>Credit Card</td><td>2026-01-03</td><td>$0.00</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>© 2026 Freebies Hub — Payment History</footer>
+        </div>
+    </div>
+
+    <!-- Support View -->
+    <div id="view-support" class="view-section">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="logo.png" alt="Freebies Hub Logo" class="sidebar-logo">
+                <h2>Freebies Hub</h2>
+            </div>
+            <a onclick="navigate('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+            <a onclick="navigate('offers')"><i class="fas fa-tags"></i> Browse Offers</a>
+            <a onclick="navigate('orders')"><i class="fas fa-shopping-bag"></i> My Orders</a>
+            <a onclick="navigate('cart')"><i class="fas fa-shopping-cart"></i> Cart</a>
+            <a onclick="navigate('wishlist')"><i class="fas fa-heart"></i> Wishlist</a>
+            <a onclick="navigate('profile')"><i class="fas fa-user-cog"></i> Profile</a>
+            <a onclick="navigate('history')"><i class="fas fa-dollar-sign"></i> Payment History</a>
+            <a onclick="navigate('support')"><i class="fas fa-headset"></i> Support</a>
+            <a onclick="navigate('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+        <div class="main">
+            <div class="hero"><h1>Support Center</h1><p>We're here to help! Submit a ticket below.</p></div>
+            <div class="form-box">
+                <form onsubmit="event.preventDefault(); alert('Ticket Submitted!');">
+                    <label>Name</label><input type="text" value="Buyer Name">
+                    <label>Email</label><input type="email" value="buyer@freebieshub.com">
+                    <label>Category</label>
+                    <select>
+                        <option>Download Issue</option>
+                        <option>Account Access</option>
+                        <option>Refund Request</option>
+                        <option>Other</option>
+                    </select>
+                    <label>Issue Description</label><textarea placeholder="Explain your problem..."></textarea>
+                    <button type="submit" class="btn-action">Submit Ticket</button>
+                </form>
+            </div>
+            <footer>© 2026 Freebies Hub — Support</footer>
+        </div>
+    </div>
+
+    <!-- Logout View -->
+    <div id="view-logout" class="view-section">
+        <div class="logout-wrapper">
+            <div class="logout-box">
+                <div id="logout-loading">
+                    <div class="loader"></div>
+                    <h1>Logging You Out...</h1>
+                    <p>Cleaning session data...</p>
+                </div>
+                <div id="logout-done" style="display:none;">
+                    <i class="fas fa-check-circle" style="font-size:80px; margin-bottom:30px;"></i>
+                    <h1>Successfully Signed Out</h1>
+                    <button class="btn-action" style="background:white; color:#0066ff; width:auto; padding:16px 40px;" onclick="navigate('login')">Return to Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="buyer-panel.js"></script>
+</body>
+</html>

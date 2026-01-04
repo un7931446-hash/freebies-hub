@@ -1,0 +1,250 @@
+/* seller-dashboard.css */
+body { 
+    margin: 0; 
+    font-family: 'Roboto', sans-serif; 
+    background: linear-gradient(135deg, #f8fbff 0%, #e6f0ff 100%); 
+    color: #333; 
+    overflow-x: hidden; 
+}
+
+/* Auth & Logout */
+.auth-wrapper { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+}
+.auth-container { 
+    background: #fff; 
+    padding: 40px 50px; 
+    border-radius: 20px; 
+    box-shadow: 0 20px 40px rgba(0, 102, 255, 0.12); 
+    width: 400px; 
+    text-align: center; 
+}
+.auth-header { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin-bottom: 30px; 
+}
+.auth-logo { 
+    width: 120px; 
+    height: 120px; 
+    margin-bottom: 15px; 
+    transition: all 0.4s ease; 
+}
+.auth-logo:hover { 
+    transform: translateY(-5px) scale(1.05); 
+    filter: drop-shadow(0 0 20px rgba(0, 102, 255, 0.4)); 
+}
+.site-name { 
+    font-size: 28px; 
+    font-weight: 700; 
+    color: #0066ff; 
+    margin: 0; 
+}
+.link-text { 
+    color: #0066ff; 
+    text-decoration: none; 
+    cursor: pointer; 
+    font-weight: bold; 
+}
+
+.logout-wrapper { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    text-align: center; 
+    background: linear-gradient(135deg, #0066ff, #003f8c); 
+    color: white; 
+}
+.loader { 
+    border: 8px solid #f3f3f3; 
+    border-top: 8px solid #ffffff; 
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    animation: spin 1.3s linear infinite; 
+    margin: 20px auto; 
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Sidebar */
+.sidebar { 
+    height: 100vh; 
+    width: 260px; 
+    position: fixed; 
+    background: linear-gradient(to bottom, #0066ff, #003f8c); 
+    color: white; 
+    padding-top: 30px; 
+    box-shadow: 5px 0 15px rgba(0,0,0,0.15); 
+    z-index: 1000; 
+    display: none; 
+    transition: width 0.3s; 
+}
+.sidebar-header { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+.sidebar-logo { 
+    width: 100px; 
+    height: 100px; 
+    margin-bottom: 15px; 
+    transition: transform 0.3s; 
+}
+.sidebar-logo:hover { 
+    transform: scale(1.1); 
+}
+.sidebar h2 { 
+    font-size: 24px; 
+    margin: 0; 
+    letter-spacing: 1px; 
+}
+.sidebar a { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+    padding: 15px 25px; 
+    color: white; 
+    text-decoration: none; 
+    font-size: 17px; 
+    transition: all 0.3s; 
+    cursor: pointer; 
+}
+.sidebar a:hover, .sidebar a.active { 
+    background: rgba(255,255,255,0.15); 
+    padding-left: 35px; 
+    border-left: 5px solid white; 
+}
+
+.main { 
+    margin-left: 0; 
+    padding: 0; 
+    min-height: 100vh; 
+    transition: margin 0.3s; 
+}
+.main.dashboard-active { 
+    margin-left: 260px; 
+    padding: 30px; 
+}
+
+.content-section { 
+    display: none; 
+    animation: fadeIn 0.5s ease; 
+}
+.content-section.active { 
+    display: block; 
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Dashboard UI */
+.hero { 
+    background: linear-gradient(135deg, #0066ff, #003f8c); 
+    color: white; 
+    padding: 50px 30px; 
+    border-radius: 20px; 
+    margin-bottom: 40px; 
+    text-align: center; 
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2); 
+}
+.hero h1 { 
+    font-size: 32px; 
+    margin: 0 0 10px; 
+}
+.cards { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    gap: 25px; 
+}
+.card { 
+    background: #fff; 
+    padding: 30px; 
+    border-radius: 16px; 
+    text-align: center; 
+    box-shadow: 0 8px 20px rgba(0, 102, 255, 0.08); 
+    cursor: pointer; 
+    transition: all 0.4s ease; 
+}
+.card:hover { 
+    transform: translateY(-12px); 
+    box-shadow: 0 15px 35px rgba(0, 102, 255, 0.15); 
+    background: #f0f8ff; 
+}
+.card i { 
+    font-size: 45px; 
+    color: #0066ff; 
+    margin-bottom: 20px; 
+}
+.card h3 { 
+    color: #333; 
+    margin: 0 0 10px; 
+    font-size: 20px; 
+}
+
+/* Boxes & Tables */
+.box { 
+    background: white; 
+    padding: 35px; 
+    border-radius: 20px; 
+    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.08); 
+    margin-bottom: 30px; 
+}
+.box h2 { 
+    color: #0066ff; 
+    margin-top: 0; 
+    font-size: 24px; 
+}
+table { 
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 0 10px; 
+    margin-top: 20px; 
+}
+th, td { 
+    padding: 15px; 
+    text-align: left; 
+}
+th { 
+    background: #0066ff; 
+    color: white; 
+    border-radius: 10px 10px 0 0; 
+}
+tr td { 
+    background: #f8fbff; 
+    border-radius: 10px; 
+}
+
+/* Forms */
+input, select, textarea { 
+    width: 100%; 
+    padding: 12px; 
+    margin: 12px 0; 
+    border: 1px solid #e0e7ff; 
+    border-radius: 10px; 
+    box-sizing: border-box; 
+    transition: border 0.3s; 
+}
+input:focus, select:focus, textarea:focus { 
+    border-color: #0066ff; 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(0,102,255,0.1); 
+}
+.btn-submit { 
+    background: #0066ff; 
+    color: white; 
+    border: none; 
+    padding: 14px 30px; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    width: 100%; 
+    transition: all 0.3s; 
+    font-size: 16px; 
+}
+.btn-submit:hover { 
+    background: #003f8c; 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 20px rgba(0,102,255,0.2); 
+}
